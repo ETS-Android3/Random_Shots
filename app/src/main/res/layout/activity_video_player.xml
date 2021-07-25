@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".VideoPlayer">
+
+    <LinearLayout
+        android:id="@+id/linearHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_header"
+        android:padding="5dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/headerBack"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/logo_height"
+            android:onClick="close"
+            android:src="@drawable/ic_back" />
+        <TextView
+            android:id="@+id/headerName"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:fadingEdge = "horizontal"
+            android:marqueeRepeatLimit = "marquee_forever"
+            android:scrollHorizontally = "true"
+            android:singleLine = "true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:textColor="@color/headerName"
+            android:fontFamily="@font/berkshireswash_regular"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_help"
+            android:background="@null"
+            android:onClick="moreOptions"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/youtubePlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.google.android.youtube.player.YouTubePlayerFragment"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/linearHeader"
+        tools:ignore="Instantiatable" />
+    <TextView
+        android:id="@+id/videoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/youtubePlayer"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Title: "
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_size"
+        android:fontFamily="@font/philosopher_regular"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:id="@+id/videoDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/videoTitle"
+        android:layout_marginLeft="10dp"
+        android:text="Description: "
+        android:textColor="@color/white"
+        android:textSize="@dimen/label_size"
+        android:fontFamily="@font/philosopher_regular"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
